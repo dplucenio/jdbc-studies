@@ -1,0 +1,10 @@
+/home/dplucenio/Projects/jdbc-studies/plain-jdbc/src/main/java/io/plucen/repositories/sql/SqlRepository.java
+/home/dplucenio/Projects/jdbc-studies/plain-jdbc/src/main/java/io/plucen/entities/Student.java
+/home/dplucenio/Projects/jdbc-studies/plain-jdbc/src/main/java/io/plucen/repositories/sql/SqlStudentRepository.java
+/home/dplucenio/Projects/jdbc-studies/plain-jdbc/src/main/java/io/plucen/entities/Identifiable.java
+/home/dplucenio/Projects/jdbc-studies/plain-jdbc/src/main/java/io/plucen/App.java
+/home/dplucenio/Projects/jdbc-studies/plain-jdbc/src/main/java/io/plucen/repositories/fakes/FakeStudentRepository.java
+/home/dplucenio/Projects/jdbc-studies/plain-jdbc/src/main/java/io/plucen/repositories/sql/migrations/Migrations.java
+/home/dplucenio/Projects/jdbc-studies/plain-jdbc/src/main/java/io/plucen/repositories/fakes/FakeCrudRepository.java
+/home/dplucenio/Projects/jdbc-studies/plain-jdbc/src/main/java/io/plucen/repositories/CrudRepository.java
+/home/dplucenio/Projects/jdbc-studies/plain-jdbc/src/main/java/io/plucen/repositories/sql/DataSourceConfiguration.java
