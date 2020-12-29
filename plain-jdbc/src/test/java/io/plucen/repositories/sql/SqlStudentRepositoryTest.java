@@ -1,9 +1,10 @@
 package io.plucen.repositories.sql;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
+import io.plucen.entities.Student;
 import io.plucen.repositories.sql.migrations.Migrations;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.util.UUID;
 import org.h2.jdbcx.JdbcDataSource;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -12,6 +13,7 @@ import org.junit.jupiter.api.Test;
 class SqlStudentRepositoryTest {
 
   private static JdbcDataSource dataSource;
+  private static SqlStudentRepository sqlStudentRepository;
 
   @BeforeAll
   public static void globalSetup() {
@@ -19,6 +21,8 @@ class SqlStudentRepositoryTest {
     dataSource.setURL("jdbc:h2:~/a2");
     dataSource.setUser("sa");
     dataSource.setPassword("sa");
+
+    sqlStudentRepository = new SqlStudentRepository(dataSource);
   }
 
   @BeforeEach
@@ -28,14 +32,19 @@ class SqlStudentRepositoryTest {
   }
 
   @Test
-  public void saveMustPersistEntry() throws SQLException {
-    //    try {
-    final Connection connection = dataSource.getConnection();
-    final ResultSet resultSet =
-        connection.prepareStatement(("SELECT * " + "FROM person")).executeQuery();
-    System.out.println(resultSet);
-    //    } catch (SQLException exception) {
-    //      exception.printStackTrace();
-    //    }
+  public void repositoryShouldBeEmpty() {
+    assertThat(sqlStudentRepository.index()).isEmpty();
+  }
+
+  @Test
+  public void testSavingPersistance() {
+    final Student johnLennon = new Student(UUID.randomUUID(), "John Lennon");
+    final Student paulMcCartney = new Student(UUID.randomUUID(), "Paul McCartney");
+
+    sqlStudentRepository.save(johnLennon);
+    sqlStudentRepository.save(paulMcCartney);
+
+    assertThat(sqlStudentRepository.index().stream().map(Student::getName))
+        .containsExactlyInAnyOrder("John Lennon", "Paul McCartney");
   }
 }

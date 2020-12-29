@@ -1,1 +1,1 @@
-CREATE TABLE if not exists person (id uuid,  name varchar);
+CREATE TABLE if not exists student (id uuid,  name varchar);
