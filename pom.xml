@@ -11,6 +11,7 @@
   <version>1.0</version>
   <modules>
     <module>plain-jdbc</module>
+    <module>spring-web-app</module>
   </modules>
 
   <name>jdbc-studies</name>
